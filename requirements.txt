@@ -1,8 +1,4 @@
-beautifulsoup4
 selenium
 undetected-chromedriver
-boto3
-botocore
-requests
 numpy
 pandas
