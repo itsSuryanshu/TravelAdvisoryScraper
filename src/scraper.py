@@ -68,6 +68,9 @@ def getData():
     # add data from countries list
     addNewEntry(countries)
 
+    # close the browser as its not needed after the previous step
+    browser.quit()
+
 if __name__ == "__main__":
     getData()
 
