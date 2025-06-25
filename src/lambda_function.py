@@ -62,15 +62,6 @@ def makeData():
             countries.extend([countries[-1].find_next_sibling("tr")])
         except:
             break
-    """
-    for country in countries[6:7]:
-        elements = country.find_elements(By.TAG_NAME, "td")
-        #element_img = elements[0].find_element(By.TAG_NAME, "img")
-        element_name = elements[0].find_element(By.TAG_NAME, "a")
-        element_desc = elements[1].find_element(By.TAG_NAME, "div")
-        element_updated = elements[2]
-    print(element_name.text, element_desc.get_attribute("class"), element_desc.text, element_updated.text)
-    """
 
     # create an empty dataFrame with only the column names
     df = pd.DataFrame(columns=["Country", "Risk Level", "Description", "Last Updated"])
