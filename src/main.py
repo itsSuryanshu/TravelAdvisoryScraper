@@ -1,7 +1,6 @@
 import logging
 from bs4 import BeautifulSoup
 import requests
-import numpy as np
 import pandas as pd
 
 logger = logging.getLogger()
@@ -23,7 +22,7 @@ def addNewEntry(countries):
     name = country_elements[1].a.string
     temp = country_elements[2].div
     risk = temp["class"][0]
-    description = temp.text
+    description = temp.text.strip()
     updated = country_elements[3].text
 
     # create a new row of data to be added
@@ -34,7 +33,7 @@ def addNewEntry(countries):
     
     # add the row to the DataFrame
     pd.DataFrame([new_row]).to_csv("data.csv", mode="a", header=False, index=False)
-    print(f"Added: {new_row}")
+    #print(f"Added: {new_row}") ---TESTING---
 
     # recursively run again with the next country in list
     return addNewEntry(countries[1:])
@@ -73,5 +72,7 @@ def makeData():
     addNewEntry(countries)
 
 if __name__ == '__main__':
+    logger.info("Started Scraping.")
     makeData()
+    logger.info("Scraping Finished.")
 
