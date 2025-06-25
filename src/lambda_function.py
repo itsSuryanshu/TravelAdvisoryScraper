@@ -32,7 +32,7 @@ def addNewEntry(countries):
     name = country_elements[1].a.string
     temp = country_elements[2].div
     risk = temp["class"][0]
-    description = temp.text
+    description = temp.text.strip()
     updated = country_elements[3].text
 
     # create a new row of data to be added
